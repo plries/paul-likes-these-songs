@@ -2,6 +2,8 @@ import dotenv from "dotenv"
 import fs from "fs/promises"
 import { Vibrant } from "node-vibrant/node"
 import { songs } from "@/content/songs"
+import { TrackType } from "@/app/types";
+import tracks from "@/generated/tracks.json";
 
 dotenv.config()
 
@@ -52,41 +54,54 @@ const getPalette = async (image: string) => {
   return palette
 }
 
+const formatDate = () => {
+  const today = new Date()
+  return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}` 
+}
+
 async function main() {
   const token = await getToken()
 
   if (!token) {
-    throw new Error("Failed to get Spotify token")
+    throw new Error("failed to get token")
   }
   
   const enriched = await Promise.all(
     songs.map(async (song) => {
       const q = `${song.name} ${song.artist}`
+
+      if ((tracks as unknown as TrackType[]).find((t) => t.id === q)) {
+        console.log(`${q} already exists in tracks.json`)
+        return null
+      }
+
       const track = await getTrack(q, token)
 
       if (!track) {
-        throw new Error(`No metadata found for ${q}`)
+        throw new Error(`no metadata found for ${q}`)
       }
 
       const image = track.album.images[0].url
       const colors = await getPalette(image)
 
       return {
-        id: track.id,
+        id: q,
         href: track.external_urls.spotify,
         title: track.name,
         artist: track.artists.map((artist: any) => artist.name).join(", "),
         album: track.album.name,
-        date: song.date,
+        date: formatDate(),
         image,
         colors,
       }
     })
   )
 
+  const tracksList = [...tracks, ...enriched.filter((t) => t !== null)]
+
   await fs.writeFile(
     "generated/tracks.json",
-    JSON.stringify(enriched, null, 2)
+    JSON.stringify(tracksList, null, 2)
   )
 }
 
