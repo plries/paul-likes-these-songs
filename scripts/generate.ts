@@ -54,11 +54,6 @@ const getPalette = async (image: string) => {
   return palette
 }
 
-const formatDate = () => {
-  const today = new Date()
-  return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}` 
-}
-
 async function main() {
   const token = await getToken()
 
@@ -90,7 +85,7 @@ async function main() {
         title: track.name,
         artist: track.artists.map((artist: any) => artist.name).join(", "),
         album: track.album.name,
-        date: formatDate(),
+        date: new Date().toISOString(),
         image,
         colors,
       }

@@ -17,10 +17,16 @@ export const useTrack = () => {
     return luminance < 0.55 ? "text-neutral-50" : "text-neutral-950"
   }
 
+  const getDate = (date: string) => {
+    const d = new Date(date)
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` 
+  }
+
   return {
     isOpen,
     openHandler,
 
     getTextColorFromHex,
+    getDate,
   };
 }

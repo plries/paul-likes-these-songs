@@ -80,7 +80,7 @@ export const Track = ({ track }: TrackProps) => {
             background: track.colors.vibrant,
           }}
         >
-          + {track.date}
+          + {hook.getDate(track.date)}
         </p>
       </div>
     </div>

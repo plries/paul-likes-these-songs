@@ -5,7 +5,7 @@
     "title": "Music",
     "artist": "underscores",
     "album": "U",
-    "date": "2026-05-22",
+    "date": "2026-05-22T22:58:00-07:00",
     "image": "https://i.scdn.co/image/ab67616d0000b273cab898cdda3ee7d1e9b25646",
     "colors": {
       "vibrant": "#ad9645",
@@ -22,7 +22,7 @@
     "title": "Wyl Up",
     "artist": "Brighter Days Family",
     "album": "Audio Sunrise",
-    "date": "2026-05-23",
+    "date": "2026-05-23T02:14:00-07:00",
     "image": "https://i.scdn.co/image/ab67616d0000b27341ec3a549c6f8e47cff9e00e",
     "colors": {
       "vibrant": "#f1e10a",
@@ -31,6 +31,23 @@
       "darkMuted": "#2a3b52",
       "lightVibrant": "#d671a4",
       "lightMuted": "#76224c"
+    }
+  },
+  {
+    "id": "lil qoo tsubi club",
+    "href": "https://open.spotify.com/track/0iX9RT9NmaeX9yEflLXTzc",
+    "title": "lil qoo",
+    "artist": "tsubi club",
+    "album": "trinket",
+    "date": "2026-05-23T19:44:45.940Z",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f1e30eb7b9ab00cb4666c6f1",
+    "colors": {
+      "vibrant": "#de7b2a",
+      "muted": "#78ac74",
+      "darkVibrant": "#204f92",
+      "darkMuted": "#2f3f55",
+      "lightVibrant": "#cceca4",
+      "lightMuted": "#c5bcab"
     }
   }
 ]
