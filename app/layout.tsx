@@ -13,7 +13,7 @@ const martianMono = Martian_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "music",
+  title: "paul likes these songs",
   description: "music paul listens to",
 };
 
