@@ -1,6 +1,6 @@
-export const input = [
+export const songs = [
   {
-    track: 'music',
+    name: 'music',
     artist: 'underscores',
     date: '2025-05-22'
   },

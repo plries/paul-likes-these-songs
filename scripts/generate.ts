@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 import fs from "fs/promises"
 import { Vibrant } from "node-vibrant/node"
-import { input } from "@/content/input"
+import { songs } from "@/content/songs"
 
 dotenv.config()
 
@@ -60,8 +60,8 @@ async function main() {
   }
   
   const enriched = await Promise.all(
-    input.map(async (song) => {
-      const q = `${song.track} ${song.artist}`
+    songs.map(async (song) => {
+      const q = `${song.name} ${song.artist}`
       const track = await getTrack(q, token)
 
       if (!track) {

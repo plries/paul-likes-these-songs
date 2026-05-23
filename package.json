@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "generate": "tsx scripts/generate.ts",
+    "build": "npm run generate && next build",
     "start": "next start",
-    "lint": "eslint",
-    "sync": "tsx scripts/sync.ts"
+    "lint": "eslint"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
