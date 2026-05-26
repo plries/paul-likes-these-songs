@@ -15,5 +15,9 @@ export const songs: SongType[] = [
   {
     name: 'lil qoo',
     artist: 'tsubi club'
+  },
+  {
+    name: 'all i am'
+    artist: 'ninajirachi'
   }
 ]
